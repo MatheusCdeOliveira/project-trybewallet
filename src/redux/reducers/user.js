@@ -2,10 +2,7 @@
 import { LOGIN } from '../actions';
 
 export const INITIAL_STATE = {
-  user: {
-    email: '',
-  },
-  wallet: {},
+  email: '',
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -13,8 +10,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
   case LOGIN:
     return {
       ...state,
-      email: action.payload.email,
-
+      email: action.payload,
     };
   default:
     return state;
