@@ -1,5 +1,6 @@
 export const REQUEST_API = 'REQUEST_API';
 export const RECEIVE_API = 'RECEIVE_API';
+export const ADD_EXPENSES = 'ADD_EXPENSES';
 
 const requestAPI = () => ({
   type: REQUEST_API,
@@ -20,3 +21,8 @@ export const getAPI = () => async (dispatch) => {
     console.error(error);
   }
 };
+
+export const addExpenses = (payload) => ({
+  type: ADD_EXPENSES,
+  payload,
+});
