@@ -1,8 +1,20 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
-import { INITIAL_STATE } from './user';
+
+import { RECEIVE_API, REQUEST_API } from '../actions/wallet';
+
+const INITIAL_STATE = {
+  currencies: [],
+};
 
 const walletReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+  case REQUEST_API:
+    return state;
+  case RECEIVE_API:
+    return {
+      ...state,
+      currencies: Object.keys(action.payload).filter((coin) => coin !== 'USDT'),
+    };
   default:
     return state;
   }
