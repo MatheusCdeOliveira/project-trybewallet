@@ -5,10 +5,12 @@ import Table from '../components/Table';
 
 class Wallet extends React.Component {
   render() {
-    return (<div>
-      <WalletForm />
-      <Table />
-    </div>);
+    return (
+      <div>
+        <WalletForm />
+        <Table />
+      </div>
+    );
   }
 }
 
