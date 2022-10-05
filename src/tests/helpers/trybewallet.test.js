@@ -3,6 +3,7 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithRouterAndRedux } from './renderWith';
 import App from '../../App';
+import Carteira from '../../pages/Carteira';
 
 describe('Testes da aplicação TrybeWallet', () => {
   it('Verifica se os inputs da página de Login são renderizados e funcionam corretamente.', () => {
@@ -53,5 +54,27 @@ describe('Testes da aplicação TrybeWallet', () => {
 
     expect(user).toBeInTheDocument();
     expect(coin).toBeInTheDocument();
+  });
+
+  it('Verifica a página Carteira e a função de adicionar despesas', async () => {
+    renderWithRouterAndRedux(<Carteira />);
+    const value = await screen.findByTestId('total-field');
+
+    const inputs = screen.getAllByRole('textbox');
+    const inputValue = screen.getByTestId('value-input');
+    const btnAdd = screen.getByRole('button', { name: /adicionar despesa/i });
+    expect(inputs.length).toBe(2);
+    expect(btnAdd).toBeInTheDocument();
+
+    userEvent.type(inputValue, 5);
+    userEvent.click(btnAdd);
+
+    const btnDelete = await screen.findByRole('button', { name: /excluir/i });
+
+    expect(value).toBeInTheDocument();
+    expect(btnDelete).toBeInTheDocument();
+    userEvent.click(btnDelete);
+
+    expect(btnDelete).not.toBeInTheDocument();
   });
 });

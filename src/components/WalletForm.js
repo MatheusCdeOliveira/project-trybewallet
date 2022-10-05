@@ -62,6 +62,7 @@ class WalletForm extends Component {
             <input
               type="text"
               name="value"
+              id="value"
               value={ value }
               onChange={ this.handleWallet }
               data-testid="value-input"
@@ -72,6 +73,7 @@ class WalletForm extends Component {
             <input
               type="text"
               name="description"
+              id="description"
               data-testid="description-input"
               onChange={ this.handleWallet }
               value={ description }
@@ -82,6 +84,7 @@ class WalletForm extends Component {
             <select
               onChange={ this.handleWallet }
               data-testid="currency-input"
+              id="currency"
               name="currency"
               value={ currency }
             >
@@ -94,6 +97,7 @@ class WalletForm extends Component {
             <select
               data-testid="method-input"
               name="method"
+              id="method"
               onChange={ this.handleWallet }
               value={ method }
             >
@@ -107,6 +111,7 @@ class WalletForm extends Component {
             Categoria
             <select
               data-testid="tag-input"
+              id="tag"
               name="tag"
               onChange={ this.handleWallet }
               value={ tag }
