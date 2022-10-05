@@ -16,10 +16,9 @@ class Header extends Component {
                 const cambio = curr.exchangeRates[coin].ask;
                 const value = Number(cambio * curr.value);
                 const result = acc + value;
-                return Number(result.toFixed(2));
-              }, 0)
+                return Number(result);
+              }, 0).toFixed(2)
             }
-
           </p>
           <p data-testid="header-currency-field">BRL</p>
         </div>
@@ -40,9 +39,5 @@ Header.propTypes = {
     })),
   }).isRequired,
 };
-
-// expenses: PropTypes.arrayOf(shape({
-//
-// })),
 
 export default connect(mapStateToProps)(Header);

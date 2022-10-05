@@ -1,6 +1,7 @@
 export const REQUEST_API = 'REQUEST_API';
 export const RECEIVE_API = 'RECEIVE_API';
 export const ADD_EXPENSES = 'ADD_EXPENSES';
+export const REMOVE_EXPENSES = 'REMOVE_EXPENSES';
 
 const requestAPI = () => ({
   type: REQUEST_API,
@@ -24,5 +25,10 @@ export const getAPI = () => async (dispatch) => {
 
 export const addExpenses = (payload) => ({
   type: ADD_EXPENSES,
+  payload,
+});
+
+export const removeExpenses = (payload) => ({
+  type: REMOVE_EXPENSES,
   payload,
 });
